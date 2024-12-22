@@ -1,0 +1,109 @@
+-- StormHub Script with Dragging Functionality, Completely Black Background, Curved Corners, and White Outline
+-- Credits: 013luka for creating StormHub
+
+local StormHub = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local TradeScamLabel = Instance.new("TextLabel")
+local OnButton = Instance.new("TextButton")
+local OffButton = Instance.new("TextButton")
+
+StormHub.Name = "StormHub"
+StormHub.Parent = game.CoreGui
+
+Frame.Parent = StormHub
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Arka plan rengini tamamen siyah yap
+Frame.Position = UDim2.new(0.5, -150, 0.5, -75) -- Çerçeve pozisyonu
+Frame.Size = UDim2.new(0, 300, 0, 150) -- Çerçeve boyutu
+Frame.Active = true -- Sürüklemeyi etkinleştir
+Frame.Draggable = true -- Çerçeveyi sürüklenebilir yap
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Size = UDim2.new(1, 0, 0.3, 0)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "StormHub"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0) -- Başlık rengini siyah yap
+Title.TextScaled = true
+Title.TextStrokeColor3 = Color3.fromRGB(128, 0, 128) -- Başlığa mor dış katman ekle
+Title.TextStrokeTransparency = 0 -- Dış katman renginin şeffaflığını ayarla
+
+TradeScamLabel.Name = "TradeScamLabel"
+TradeScamLabel.Parent = Frame
+TradeScamLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TradeScamLabel.BackgroundTransparency = 1
+TradeScamLabel.Position = UDim2.new(0, 0, 0.3, 0)
+TradeScamLabel.Size = UDim2.new(1, 0, 0.3, 0)
+TradeScamLabel.Font = Enum.Font.SourceSans
+TradeScamLabel.Text = "Trade Scam: ON"
+TradeScamLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+TradeScamLabel.TextScaled = true
+
+OnButton.Name = "OnButton"
+OnButton.Parent = Frame
+OnButton.BackgroundColor3 = Color3.fromRGB(85, 0, 127)
+OnButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+OnButton.Size = UDim2.new(0.35, 0, 0.25, 0) -- Buton boyutu
+OnButton.Font = Enum.Font.SourceSansBold
+OnButton.Text = "ON"
+OnButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+OnButton.TextScaled = true
+OnButton.AutoButtonColor = false
+OnButton.ClipsDescendants = true
+OnButton.BackgroundTransparency = 0.1
+OnButton.TextStrokeTransparency = 0.8
+OnButton.TextStrokeColor3 = Color3.fromRGB(85, 0, 127)
+OnButton.TextSize = 14
+OnButton.BorderSizePixel = 2 -- Beyaz kenarlık ekle
+OnButton.BorderColor3 = Color3.fromRGB(255, 255, 255) -- Beyaz kenarlık rengi
+OnButton.TextWrapped = true
+OnButton.TextXAlignment = Enum.TextXAlignment.Center
+OnButton.TextYAlignment = Enum.TextYAlignment.Center
+OnButton.Font = Enum.Font.SourceSansBold
+
+OffButton.Name = "OffButton"
+OffButton.Parent = Frame
+OffButton.BackgroundColor3 = Color3.fromRGB(169, 169, 169) -- Butonu gri yap
+OffButton.Position = UDim2.new(0.55, 0, 0.7, 0)
+OffButton.Size = UDim2.new(0.35, 0, 0.25, 0) -- Buton boyutu
+OffButton.Font = Enum.Font.SourceSansBold
+OffButton.Text = "OFF"
+OffButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+OffButton.TextScaled = true
+OffButton.AutoButtonColor = false
+OffButton.ClipsDescendants = true
+OffButton.BackgroundTransparency = 0.1
+OffButton.TextStrokeTransparency = 0.8
+OffButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+OffButton.TextSize = 14
+OffButton.BorderSizePixel = 2 -- Beyaz kenarlık ekle
+OffButton.BorderColor3 = Color3.fromRGB(255, 255, 255) -- Beyaz kenarlık rengi
+OffButton.TextWrapped = true
+OffButton.TextXAlignment = Enum.TextXAlignment.Center
+OffButton.TextYAlignment = Enum.TextYAlignment.Center
+OffButton.Font = Enum.Font.SourceSansBold
+
+OnButton.MouseButton1Click:Connect(function()
+    TradeScamLabel.Text = "Trade Scam: ON"
+    TradeScamLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+end)
+
+OffButton.MouseButton1Click:Connect(function()
+    TradeScamLabel.Text = "Trade Scam: OFF"
+    TradeScamLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+end)
+
+local UICornerFrame = Instance.new("UICorner")
+UICornerFrame.CornerRadius = UDim.new(0.1, 0) -- Çerçeveyi kavisli yap
+UICornerFrame.Parent = Frame
+
+local UICornerOn = Instance.new("UICorner")
+UICornerOn.CornerRadius = UDim.new(0.5, 0)
+UICornerOn.Parent = OnButton
+
+local UICornerOff = Instance.new("UICorner")
+UICornerOff.CornerRadius = UDim.new(0.5, 0)
+UICornerOff.Parent = OffButton
